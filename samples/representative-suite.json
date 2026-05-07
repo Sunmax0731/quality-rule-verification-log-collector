@@ -1,0 +1,114 @@
+{
+  "product": "quality-rule-verification-log-collector",
+  "title": "品質ルール検証ログコレクター",
+  "benchmarkRepos": [
+    "Sunmax0731/movie-telop-transcriber",
+    "Sunmax0731/codex-remote-android"
+  ],
+  "requiredFields": [
+    "ruleId",
+    "status",
+    "evidencePath",
+    "manualStep"
+  ],
+  "scenarios": [
+    {
+      "id": "happy-path",
+      "purpose": "品質ルール、手動検証、ログ証跡、次アクションの正常入力を確認する",
+      "input": {
+        "items": [
+          {
+            "id": "quality-rule-verification-log-collector-happy",
+            "title": "品質ルール検証ログコレクター happy",
+            "ruleId": "manual-evidence-required",
+            "status": "ready",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          }
+        ]
+      },
+      "expected": {
+        "result": "passed",
+        "errors": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "missing-required",
+      "purpose": "必須項目不足をerrorとして検出する",
+      "input": {
+        "items": [
+          {
+            "id": "quality-rule-verification-log-collector-missing-required",
+            "title": "品質ルール検証ログコレクター missing-required",
+            "status": "ready",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          }
+        ]
+      },
+      "expected": {
+        "result": "failed",
+        "errors": 1,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "blocked-status",
+      "purpose": "blocked状態をwarningとして検出する",
+      "input": {
+        "items": [
+          {
+            "id": "quality-rule-verification-log-collector-blocked",
+            "title": "品質ルール検証ログコレクター blocked",
+            "ruleId": "manual-evidence-required",
+            "status": "blocked",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          }
+        ]
+      },
+      "expected": {
+        "result": "warning",
+        "errors": 0,
+        "warnings": 1
+      }
+    },
+    {
+      "id": "mixed-batch",
+      "purpose": "正常、必須不足、警告を同一バッチで集計する",
+      "input": {
+        "items": [
+          {
+            "id": "quality-rule-verification-log-collector-happy",
+            "title": "品質ルール検証ログコレクター happy",
+            "ruleId": "manual-evidence-required",
+            "status": "ready",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          },
+          {
+            "id": "quality-rule-verification-log-collector-missing-required",
+            "title": "品質ルール検証ログコレクター missing-required",
+            "status": "ready",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          },
+          {
+            "id": "quality-rule-verification-log-collector-blocked",
+            "title": "品質ルール検証ログコレクター blocked",
+            "ruleId": "manual-evidence-required",
+            "status": "blocked",
+            "evidencePath": "docs/manual-test.md",
+            "manualStep": "手動テスト結果を検証ログへ添付する"
+          }
+        ]
+      },
+      "expected": {
+        "result": "failed",
+        "errors": 1,
+        "warnings": 1
+      }
+    }
+  ]
+}
