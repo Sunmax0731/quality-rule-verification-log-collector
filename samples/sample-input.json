@@ -1,15 +1,15 @@
 {
   "items": [
     {
-      "id": "quality-1",
+      "id": "quality-rule-verification-log-collector-1",
       "title": "品質ルール・手動検証・検証ログ収集 サンプル 1",
-      "ruleId": "manual-checklist-required",
       "status": "ready",
+      "ruleId": "manual-evidence-required",
       "evidencePath": "docs/manual-test.md",
       "manualStep": "主要フローを手動で確認する"
     },
     {
-      "id": "quality-missing-required",
+      "id": "quality-rule-verification-log-collector-missing-required",
       "title": "必須項目不足サンプル",
       "status": "ready",
       "evidencePath": "docs/manual-test.md",
