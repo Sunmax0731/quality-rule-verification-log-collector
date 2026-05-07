@@ -191,7 +191,7 @@
           "description": "docs ZIPが生成済みである",
           "kind": "zip",
           "pass": true,
-          "detail": "quality-rule-verification-log-collector-docs.zip 9986 bytes"
+          "detail": "quality-rule-verification-log-collector-docs.zip exists and exceeds minimum size"
         }
       ]
     },

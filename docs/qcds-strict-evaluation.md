@@ -36,7 +36,7 @@ Overall: S+ (100)
 - [x] ローカル実行手順がある - ok
 - [x] 代表サンプルがある - ok
 - [x] 機械可読metricsが生成される - metrics generated
-- [x] docs ZIPが生成済みである - quality-rule-verification-log-collector-docs.zip 9986 bytes
+- [x] docs ZIPが生成済みである - quality-rule-verification-log-collector-docs.zip exists and exceeds minimum size
 
 ### Delivery
 
