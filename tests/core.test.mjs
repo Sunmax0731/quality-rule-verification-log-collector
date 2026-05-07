@@ -4,12 +4,12 @@ import { analyzeItems, renderMarkdownReport } from '../src/core.mjs';
 
 test('valid sample passes required field checks', () => {
   const report = analyzeItems({ items: [{
-  "id": "quality-1",
-  "title": "品質ルール・手動検証・検証ログ収集 サンプル 1",
-  "ruleId": "manual-checklist-required",
+  "id": "quality-rule-verification-log-collector-1",
+  "title": "品質ルール検証ログコレクター サンプル1",
   "status": "ready",
+  "ruleId": "manual-evidence-required",
   "evidencePath": "docs/manual-test.md",
-  "manualStep": "主要フローを手動で確認する"
+  "manualStep": "手動テストの結果を検証ログへ添付する"
 }] });
   assert.equal(report.summary.result, 'passed');
   assert.equal(report.summary.errors, 0);
@@ -17,11 +17,11 @@ test('valid sample passes required field checks', () => {
 
 test('missing required field is reported', () => {
   const report = analyzeItems({ items: [{
-  "id": "quality-missing-required",
+  "id": "quality-rule-verification-log-collector-missing-required",
   "title": "必須項目不足サンプル",
   "status": "ready",
   "evidencePath": "docs/manual-test.md",
-  "manualStep": "主要フローを手動で確認する"
+  "manualStep": "手動テストの結果を検証ログへ添付する"
 }] });
   assert.equal(report.summary.result, 'failed');
   assert.equal(report.summary.errors, 1);

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "品質ルール、手動検証手順、検証ログを束ねて、公開前の証跡不足を検出する。",
+  "description": "品質ルール、手動検証、検証ログを同じ粒度で記録し、抜け漏れを検出する。",
   "scripts": {
     "test": "node --test tests/*.test.mjs && node tools/qcds-evaluate.mjs",
     "validate": "npm test",
@@ -12,7 +12,9 @@
   "keywords": [
     "projectmanagement",
     "quality",
-    "mvp"
+    "mvp",
+    "qcds",
+    "pre-release"
   ],
   "license": "MIT"
 }

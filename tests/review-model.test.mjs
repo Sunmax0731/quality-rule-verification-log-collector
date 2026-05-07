@@ -8,10 +8,10 @@ test('review model exposes status cards and next actions', () => {
   "title": "必須項目不足サンプル",
   "status": "ready",
   "evidencePath": "docs/manual-test.md",
-  "manualStep": "主要フローを手動で確認する"
+  "manualStep": "手動テストの結果を検証ログへ添付する"
 }] });
   const model = buildReviewModel(report);
-  assert.equal(model.statusLabel, '要修正');
+  assert.equal(model.statusLabel, '修正が必要');
   assert.ok(model.completionRate < 100);
   assert.ok(model.cards.length >= 4);
   assert.match(renderHtmlReport(report), /Next Actions/);
